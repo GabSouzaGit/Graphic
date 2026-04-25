@@ -1,0 +1,120 @@
+* {
+    font-family: system-ui, 
+                -apple-system, 
+                BlinkMacSystemFont, 
+                'Segoe UI', 
+                Roboto, 
+                Oxygen, 
+                Ubuntu, 
+                Cantarell, 
+                'Open Sans', 
+                'Helvetica Neue', 
+                sans-serif;
+}
+
+body {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+/* Formulário */
+
+#main-area {
+   width: 100%;
+   height: 100%;
+   display: flex;
+}
+
+#form-data, #graph {
+    padding: 8px;
+}
+
+#form-data {
+    flex-grow: 10;
+    background: hsl(200, 100%, 90%);
+}
+
+.input {
+    margin: 8px 0;
+}
+
+.input input:not(#identifier) {
+    padding: 6px;
+    width: 100%;
+    max-width: 200px;
+}
+
+button {
+    padding: 5px;
+    cursor: pointer;
+}
+
+#resume {
+    margin: 10px 0;
+}
+
+#resume #stats {
+    font-family: monospace;
+}
+
+/****/
+
+/* Gráfico */
+#graph {
+    flex-grow: 90;
+    background: hsl(0, 0%, 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    margin: 8px;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    border: 1px solid #000;
+}
+
+/****/
+
+/* Historico */
+
+#historic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px
+}
+
+#historic table {
+    border-collapse: collapse;
+}
+
+#historic table td {
+    padding: 8px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: wrap;
+}
+
+#historic table .id-table {
+    height: 10px;
+    width: 100%;
+}
+
+/****/
+
+@media (max-width: 1119px){
+    body {
+        height: initial;
+        min-height: 100vh;
+    }
+
+    #main-area {
+        flex-direction: column;
+    }
+}

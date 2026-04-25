@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Gráfico </title>
+</head>
+<body>
+    <div id="main-area">
+        <div id="form-data">
+            <h1> Índice Físico-Personalidade </h1>
+            <div class="input">
+                <label for="boobs">
+                    Nome:
+                </label>
+                <div>
+                    <input type="text" id="name" placeholder="Digite o nome"/>
+                    <input type="color" id="identifier"/>
+                </div>
+            </div>
+            <div class="input">
+                <label for="boobs">
+                    Peito:
+                </label>
+                <div>
+                    <input type="number" max="10" min="0" value="0" id="boobs"/>
+                </div>
+            </div>
+            <div class="input">
+                <label for="ass">
+                    Bunda:
+                </label>
+                <div>
+                    <input type="number" max="10" min="0" value="0" id="ass"/>
+                </div>
+            </div>
+            <div class="input">
+                <label for="face">
+                    Rosto:
+                </label>
+                <div>
+                    <input type="number" max="10" min="0" value="0" id="face"/>
+                </div>
+            </div>
+            <div class="input">
+                <label for="personality">
+                    Personalidade:
+                </label>
+                <div>
+                    <input type="number" max="10" min="0" value="0" id="personality"/>
+                </div>
+            </div>
+            <div id="buttons">
+                <button id="send"> Enviar </button>
+                <button id="clean"> Apagar dados armazenados </button>
+            </div>
+            <div id="resume">
+                <h2> Estatisticas </h2>
+                <div id="stats">
+                    Em desenvolvimento.
+                </div>
+            </div>
+        </div>
+        <div id="graph">
+            <canvas></canvas>
+        </div>
+    </div>
+    <div id="historic">
+        <table border="1">
+            <tr>
+                <td>Nome</td>
+                <td>Identificador</td>
+                <td>Peit.</td>
+                <td>Bund.</td>
+                <td>Rost.</td>
+                <td>Pers.</td>
+                <td>MX</td>
+                <td>MY</td>
+            </tr>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
