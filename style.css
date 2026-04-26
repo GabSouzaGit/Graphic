@@ -83,27 +83,26 @@ canvas {
 /* Historico */
 
 #historic {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 8px
+    width: 100%;
+    overflow-x: scroll;
+    background: hsl(200, 100%, 90%);
+    border-bottom: 1px solid gray;
 }
 
 #historic table {
     border-collapse: collapse;
+    box-sizing: border-box;
+    margin: 8px;
 }
 
 #historic table td {
     padding: 8px;
     text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: wrap;
 }
 
 #historic table .id-table {
     height: 10px;
-    width: 100%;
+    max-width: 100vw;
 }
 
 /****/

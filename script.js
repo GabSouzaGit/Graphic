@@ -81,7 +81,7 @@ function splitGraphAreas(){
 
     const graphAreas = [
         ["CASAR", "NAMORO", "AMIZADE"],
-        ["COLORIDA", "DESCARTÁVEL", "AMIZADE"],
+        ["AMZ. COLORIDA", "DESCARTÁVEL", "AMIZADE"],
         ["DESCARTÁVEL", "DEPENDENDO DA DOSE...", "FUJA."]
     ]
 
@@ -109,7 +109,7 @@ function splitGraphAreas(){
             context.closePath();
 
             context.beginPath();
-                context.font = "bold 15px arial";
+                context.font = "bold 8px arial";
                 context.fillStyle = "#000"
                 context.fillText(
                     graphAreas[ystepi][xstepi],
