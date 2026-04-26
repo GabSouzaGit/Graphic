@@ -1,4 +1,4 @@
-const sessionIFPDocuments = [];
+let sessionIFPDocuments = [];
 
 function addToIFPSession(ifpDocument){
     sessionIFPDocuments.push({

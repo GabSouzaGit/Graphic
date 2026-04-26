@@ -82,7 +82,7 @@ resetButton.addEventListener('click', () => {
 
     if(confirmation){
         localStorage.clear();
-        sessionStorage = [];
+        sessionIFPDocuments = [];
         globalRegisterCounter = 0;
 
         while(historic.childNodes.length > 2){
