@@ -1,4 +1,57 @@
+const APPEARANCE_SCALE = [
+    "Horrivel 🤮",
+    "Muito feia 🤢",
+    "Feia 😔",
+    "Feinha 🤨",
+    "Mais ou menos 🤔",
+    "Bonitinha 👀",
+    "Bonita 😏",
+    "Gata 🥵",
+    "Linda 😍",
+    "Perfeição ✨"
+]
+
+const SYMPATHY_SCALE = [
+    "Procure um médico 🤡",
+    "Terrível 🤮",
+    "Muito chata 😒",
+    "Chatinha 🙄",
+    "Suportável 😑",
+    "Dá para melhorar 🤔",
+    "Pessoa normal 🙂",
+    "Pessoa incrível 😆",
+    "Espetacular 😍",
+    "1 em 1.000.000 💖"
+]
+
+const indicators = {
+    ... APPEARANCE_SCALE,
+    ... SYMPATHY_SCALE
+}
+
+const linearAreas = [
+    ['F', 'E', 'C'], 
+    ['A', 'C', 'B'], 
+    ['A', 'A+', 'A++'],
+];
+
+function graphIndex(avgAppearance, avgPersonality){
+    const indexCalculator = (avg) => (avg / 3 - 1) < 0 ? 0 : Math.round(avg / 3 - 1);
+    
+    const avgaIndex = indexCalculator(avgAppearance);
+    const avgpIndex = indexCalculator(avgPersonality);
+
+    console.log({
+        avgaIndex,
+        avgpIndex
+    })
+
+    return linearAreas[avgpIndex][avgaIndex];
+}
+
 function updateStatistics(){
+    const zeroLimit = (x) => x < 0 ? 0 : x;
+
     let sumMX = 0;
     let sumMY = 0;
 
@@ -8,20 +61,21 @@ function updateStatistics(){
         sumMY += (sessionIFPDocuments[i].rs + sessionIFPDocuments[i].ps) / 2;
     }
 
-    const avgAppearance = Math.round((sumMX / sessionIFPDocuments.length));
-    const avgPersonality = Math.round((sumMY / sessionIFPDocuments.length));
-
-    console.log({sumMX, sumMY});
-    console.log({ avgAppearance, avgPersonality })
-
-    const stats = document.querySelector("#stats");
+    const avgAppearance = sumMX / sessionIFPDocuments.length;
+    const avgPersonality = sumMY / sessionIFPDocuments.length;
     
-    /*
     stats.innerHTML = `
-        <div>Garotas avaliadas: <span id="girls-qtd">${sessionIFPDocuments.length}</span></div>
-        <div>Aparencia média (${avgAppearance.toFixed(1)}): <span id="appe-avg">${APPEARANCE_SCALE[avgAppearance - 1]}</span></div>
-        <div>Personalidade média (${avgPersonality.toFixed(1)}): <span id="ps-avg">${SYMPATHY_SCALE[avgPersonality - 1]}</span></div>
-        <div>Média real (0.0): <span id="total-avg">${}</span></div>
+        <div> 
+            Avaliações: <b>${sessionIFPDocuments.length}</b>
+        </div>
+        <div> 
+            Aparencia média (${avgAppearance.toFixed(1)}): <b>${APPEARANCE_SCALE[zeroLimit(Math.round(avgAppearance) - 1)]}</b>
+        </div>
+        <div>
+            Personalidade média (${avgPersonality.toFixed(1)}): <b>${SYMPATHY_SCALE[zeroLimit(Math.round(avgPersonality) - 1)]}</b>
+        </div>
+        <div>
+            Média total: ${graphIndex(avgAppearance, avgPersonality)}
+        </div>
     `
-    */
 }

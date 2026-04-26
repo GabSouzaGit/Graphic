@@ -82,5 +82,15 @@ resetButton.addEventListener('click', () => {
 
     if(confirmation){
         localStorage.clear();
+        sessionStorage = [];
+        globalRegisterCounter = 0;
+
+        for(let i = 2; i < historic.childNodes.length; i++){
+            historic.removeChild(historic.childNodes[i]);
+            console.log(historic.childNodes);
+        }
+
+        stats.innerHTML = "Sem dados suficientes.";
+        rebuildGraph();
     }
 });
