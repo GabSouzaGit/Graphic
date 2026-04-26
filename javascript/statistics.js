@@ -41,11 +41,6 @@ function graphIndex(avgAppearance, avgPersonality){
     const avgaIndex = indexCalculator(avgAppearance);
     const avgpIndex = indexCalculator(avgPersonality);
 
-    console.log({
-        avgaIndex,
-        avgpIndex
-    })
-
     return linearAreas[avgpIndex][avgaIndex];
 }
 
@@ -56,7 +51,6 @@ function updateStatistics(){
     let sumMY = 0;
 
     for(let i = 0; i < sessionIFPDocuments.length; i++){
-        console.log(sessionIFPDocuments, i)
         sumMX += (sessionIFPDocuments[i].pts + sessionIFPDocuments[i].bd) / 2;
         sumMY += (sessionIFPDocuments[i].rs + sessionIFPDocuments[i].ps) / 2;
     }
