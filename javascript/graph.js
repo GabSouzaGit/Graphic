@@ -17,8 +17,8 @@ function splitGraphAreas(){
     const xsteps = [...ysteps]
 
     const graphAreas = [
-        ["CASAR", "NAMORO", "AMIZADE"],
-        ["AMZ. COLORIDA", "DESCARTÁVEL", "AMIZADE"],
+        ["CASAR", "NAMORO", "AMIZADE IMPORTANTE"],
+        ["AMZ. COLORIDA", "FICANTE", "AMIZADE"],
         ["DESCARTÁVEL", "DEPENDENDO DA DOSE...", "FUJA."]
     ]
 

@@ -30,9 +30,9 @@ const indicators = {
 }
 
 const linearAreas = [
-    ['F', 'E', 'C'], 
-    ['A', 'C', 'B'], 
-    ['A', 'A+', 'A++'],
+    ['Fuja.', 'Dependendo da dose...', 'Descartável'], 
+    ['Amizade', 'Ficante', 'Amizade Colorida'], 
+    ['Amizade Importante', 'Namoro', 'Casar'],
 ];
 
 function graphIndex(avgAppearance, avgPersonality){

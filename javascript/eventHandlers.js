@@ -85,8 +85,8 @@ resetButton.addEventListener('click', () => {
         sessionStorage = [];
         globalRegisterCounter = 0;
 
-        for(let i = 2; i < historic.childNodes.length; i++){
-            historic.removeChild(historic.childNodes[i]);
+        while(historic.childNodes.length > 2){
+            historic.removeChild(historic.childNodes[2]);
             console.log(historic.childNodes);
         }
 
