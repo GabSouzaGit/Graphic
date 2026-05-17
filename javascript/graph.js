@@ -23,7 +23,7 @@ function splitGraphAreas(){
     ]
 
     const hslAreaMatiz = [
-        [ 100, 90, 80],
+        [ 0, 90, 80],
         [ 70, 60, 40],
         [ 40, 30, 10]
     ];
@@ -41,13 +41,13 @@ function splitGraphAreas(){
 
             context.beginPath();
                 context.rect(previousXEdge, previousYEdge, xd, yd);
-                context.fillStyle = `hsl(0, 0%, ${hslAreaMatiz[ystepi][xstepi]}%, 60%)`;
+                context.fillStyle = `hsl(220, 40%, ${hslAreaMatiz[ystepi][xstepi]}%, 90%)`;
                 context.fill();
             context.closePath();
 
             context.beginPath();
-                context.font = "bold 8px arial";
-                context.fillStyle = "#000"
+                context.font = "bold 14px arial";
+                context.fillStyle = GRAPH_STRUCT_COLOR;
                 context.fillText(
                     graphAreas[ystepi][xstepi],
                     previousXEdge + 5,
@@ -75,6 +75,7 @@ function rebuildGraph(){
     context.beginPath();
         context.moveTo(0, middleY);
         context.lineTo(canvas.width, middleY);
+        context.strokeStyle = GRAPH_STRUCT_COLOR;
         context.stroke()
     context.closePath();
 
@@ -82,6 +83,7 @@ function rebuildGraph(){
     context.beginPath();
         context.moveTo(middleX, 0);
         context.lineTo(middleX, canvas.height);
+        context.strokeStyle = GRAPH_STRUCT_COLOR;
         context.stroke()
     context.closePath();
 
@@ -91,7 +93,7 @@ function rebuildGraph(){
     let cardinalPointsCounter = 0;
 
     for(let x = 0; x < canvas.width; x += step){
-        plotPoint(x, middleY, "#000", false);
+        plotPoint(x, middleY, GRAPH_STRUCT_COLOR, false);
 
         if(cardinalPointsCounter < 5){
             context.fillText(cardinalPointsCounter, x + 5, middleY - 2);
@@ -112,7 +114,7 @@ function rebuildGraph(){
 
     // Eixo Y
     for(let y = 0; y < canvas.width; y += step){
-        plotPoint(middleX, y, "#000", false);
+        plotPoint(middleX, y, GRAPH_STRUCT_COLOR, false);
 
         if(cardinalPointsCounter != 5){
             if(cardinalPointsCounter > 5){

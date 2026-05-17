@@ -3,62 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="style.css">
     <title> Gráfico </title>
 </head>
 <body>
+    <div id="slide" class="off">
+        <div id="slide-top">
+            <div id="slide-close">
+                <ion-icon name="close-outline"></ion-icon>
+            </div>
+        </div>
+        <div id="historic">
+            <table>
+                <tr>
+                    <td>Nome</td>
+                    <td>Identificador</td>
+                    <td>Peitos</td>
+                    <td>Bunda</td>
+                    <td>Rosto</td>
+                    <td>Personalidade</td>
+                    <td>Eixo X</td>
+                    <td>Eixo Y</td>
+                </tr>
+            </table>
+        </div>  
+    </div>
     <div id="main-area">
         <div id="form-data">
-            <span>Versão 1.0</span>
-            <h1> Índice Físico-Personalidade </h1>
+            <span id="ui-version"> -- UI 2.0<br/>-- VER 1.1 </span>
+            <h1 class="iconed-title"> 
+                <ion-icon name="prism"></ion-icon>
+                <div>
+                    Indice Fisico-Personalidade 
+                </div>
+            </h1>
             <div class="input">
                 <label for="boobs">
                     Nome:
                 </label>
-                <div>
-                    <input type="text" id="name" placeholder="Digite o nome"/>
-                    <input type="color" id="identifier"/>
-                    <input type="number" id="group" style="width: 30px" value="1" min="0">
+                <div id="input-area">
+                    <input type="text" autocomplete="off" id="name" placeholder="Digite o nome" class="first-input"/>
+                    <label for="identifier" id="identifier-trigger"> 
+                        <div>
+                            Cor de identificação
+                        </div>
+                    </label>
+                    <input type="color" id="identifier" style="display: none;"/>
                 </div>
             </div>
             <div class="input">
                 <label for="boobs">
-                    Peito:
+                    Peitos:
                 </label>
-                <div>
-                    <input type="number" max="10" min="0" value="0" id="boobs"/>
+                <div id="input-area">
+                    <input type="number" max="10" min="0" placeholder="(๏ 人 ๏)" id="boobs" class="first-input"/>
                 </div>
             </div>
             <div class="input">
                 <label for="ass">
                     Bunda:
                 </label>
-                <div>
-                    <input type="number" max="10" min="0" value="0" id="ass"/>
+                <div id="input-area">
+                    <input type="number" max="10" min="0" placeholder="(‿|‿)" id="ass" class="first-input"/>
                 </div>
             </div>
             <div class="input">
                 <label for="face">
                     Rosto:
                 </label>
-                <div>
-                    <input type="number" max="10" min="0" value="0" id="face"/>
+                <div id="input-area">
+                    <input type="number" max="10" min="0" placeholder="(*ᴗ͈ˬᴗ͈)ꕤ*.ﾟ" id="face" class="first-input"/>
                 </div>
             </div>
             <div class="input">
                 <label for="personality">
                     Personalidade:
                 </label>
-                <div>
-                    <input type="number" max="10" min="0" value="0" id="personality"/>
+                <div id="input-area">
+                    <input type="number" max="10" min="0" placeholder="( ╹ -╹)?" id="personality" class="first-input"/>
                 </div>
             </div>
             <div id="buttons">
-                <button id="send"> Enviar </button>
-                <button id="clean"> Apagar dados armazenados </button>
+                <button id="send" class="in-buttons"> Enviar </button>
+                <button id="registers" class="in-buttons"> Ver registros </button>
+                <button id="clean" class="in-buttons"> Apagar dados armazenados </button>
             </div>
             <div id="resume">
-                <h2> Estatisticas </h2>
+                <h2 class="iconed-title"> 
+                    <ion-icon name="bar-chart"></ion-icon> 
+                    <div>
+                        Estatísticas 
+                    </div>
+                </h2>
                 <div id="stats">
                     Sem dados suficientes.
                 </div>
@@ -67,20 +105,6 @@
         <div id="graph">
             <canvas></canvas>
         </div>
-    </div>
-    <div id="historic">
-        <table border="1">
-            <tr>
-                <td>Nome</td>
-                <td>Identificador</td>
-                <td>Peit.</td>
-                <td>Bund.</td>
-                <td>Rost.</td>
-                <td>Pers.</td>
-                <td>MX</td>
-                <td>MY</td>
-            </tr>
-        </table>
     </div>
     <script src="javascript/globals.js"></script>
     <script src="javascript/utils.js"></script>

@@ -59,17 +59,17 @@ function updateStatistics(){
     const avgPersonality = sumMY / sessionIFPDocuments.length;
     
     stats.innerHTML = `
-        <div> 
+        <div class="statistics-topic"> 
             Avaliações: <b>${sessionIFPDocuments.length}</b>
         </div>
-        <div> 
+        <div class="statistics-topic"> 
             Aparencia média (${avgAppearance.toFixed(1)}): <b>${APPEARANCE_SCALE[zeroLimit(Math.round(avgAppearance) - 1)]}</b>
         </div>
-        <div>
+        <div class="statistics-topic">
             Personalidade média (${avgPersonality.toFixed(1)}): <b>${SYMPATHY_SCALE[zeroLimit(Math.round(avgPersonality) - 1)]}</b>
         </div>
-        <div>
-            Média total: ${graphIndex(avgAppearance, avgPersonality)}
+        <div class="statistics-topic">
+            Média total: <b>${graphIndex(avgAppearance, avgPersonality)}</b>
         </div>
     `
 }

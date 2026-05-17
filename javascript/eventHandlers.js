@@ -94,3 +94,22 @@ resetButton.addEventListener('click', () => {
         rebuildGraph();
     }
 });
+
+registersButton.addEventListener('click', () => {
+    document.body.style.overflowY = "hidden";
+    slide.classList.remove("off");
+    slide.classList.add("on");
+});
+
+slideClose.addEventListener('click', () => {
+    document.body.style.overflowY = "initial";
+    slide.classList.remove("on");
+    slide.classList.add("off");
+})
+
+color.addEventListener('input', (event) => {
+    colorTrigger.style.setProperty(
+        "--js-color-trigger",
+        color.value 
+    );
+});

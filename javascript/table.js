@@ -18,12 +18,16 @@ function tableAppending(axios, ...dataToAppend){
     idTableElement.classList.add("id-table");
     idTableElement.style = `background-color: ${dataToAppend[1]}`
 
-    tr.append(nameColumn, idTableElement);
+    const tdColor = document.createElement("td");
+    tdColor.appendChild(idTableElement);
+
+    tr.append(nameColumn, tdColor);
 
     for(let i = 2; i < dataToAppend.length; i++){
         const column = td(dataToAppend[i]);
         tr.appendChild(column);
     }
+    
     const xavg = td(axios.xavg);
     const yavg = td(axios.yavg);
     tr.append(xavg, yavg);
