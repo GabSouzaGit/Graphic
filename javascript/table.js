@@ -24,12 +24,12 @@ function tableAppending(axios, ...dataToAppend){
     tr.append(nameColumn, tdColor);
 
     for(let i = 2; i < dataToAppend.length; i++){
-        const column = td(dataToAppend[i]);
+        const column = td(dataToAppend[i].toFixed(1));
         tr.appendChild(column);
     }
     
-    const xavg = td(axios.xavg);
-    const yavg = td(axios.yavg);
+    const xavg = td(axios.xavg.toFixed(1));
+    const yavg = td(axios.yavg.toFixed(1));
     tr.append(xavg, yavg);
 
     historic.appendChild(tr);

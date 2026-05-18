@@ -16,7 +16,6 @@ function send(name, color, pts, bd, rs, ps){
         notifyInputFromEvaluating(evaluating);
         openEvaluationSession(activeEvaluation);
         prepareForNextEvaluation();
-
     }else if(evaluating){
         activeEvaluation.made++;
         saveParcialDataFromEvaluation(
@@ -25,6 +24,8 @@ function send(name, color, pts, bd, rs, ps){
             Number(rs), 
             Number(ps),
         );
+
+        prepareForNextEvaluation();
     }
 
     updateEvaluationRemaining()

@@ -16,6 +16,8 @@ function prepareForNextEvaluation(){
     for(let i = 1; i < userInputs.length; i++){
         userInputs[i].value = "";
     }
+
+    userInputs[1].focus();
 }
 
 function updateEvaluationRemaining(){
