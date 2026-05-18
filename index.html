@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="style.css">
     <title> Gráfico </title>
 </head>
@@ -32,7 +33,18 @@
     </div>
     <div id="main-area">
         <div id="form-data">
-            <span id="ui-version"> -- UI 2.0<br/>-- VER 1.1 </span>
+            <header>
+                <div>
+                    <span id="ui-version"> -- UI 2.0<br/>-- VER 1.2 BETA </span>
+                </div>
+                <div id="people">
+                    <ion-icon id="people-info" name="information-circle-outline"></ion-icon>
+                    <input type="number" min="0" placeholder="Avaliadores" id="people-input"/>
+                    <div id="remaining-evaluations" style="margin: 0 6px;">
+                        0/1
+                    </div>
+                </div>
+            </header>
             <h1 class="iconed-title"> 
                 <ion-icon name="prism"></ion-icon>
                 <div>
@@ -86,7 +98,7 @@
                 </div>
             </div>
             <div id="buttons">
-                <button id="send" class="in-buttons"> Enviar </button>
+                <button id="send" class="in-buttons" disabled> Enviar </button>
                 <button id="registers" class="in-buttons"> Ver registros </button>
                 <button id="clean" class="in-buttons"> Apagar dados armazenados </button>
             </div>
@@ -112,6 +124,8 @@
     <script src="javascript/graph.js"></script>
     <script src="javascript/table.js"></script>
     <script src="javascript/statistics.js"></script>
+    <script src="javascript/evaluation.js"></script>
+    <script src="javascript/sending.js"></script>
     <script src="javascript/eventHandlers.js"></script>
     <script src="init.js"></script>
 </body>

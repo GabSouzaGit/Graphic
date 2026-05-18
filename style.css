@@ -7,6 +7,7 @@
 
     --bg-button: hsl(var(--mtz), 100%, 60%);
     --bg-button-hover: hsl(var(--mtz), 100%, 40%);
+    --bg-button-disabled: hsl(0, 0%, 80%);
 
     --border-dark: hsl(var(--mtz), 10%, 20%);
     --border-medium: hsl(var(--mtz), 10%, 40%);
@@ -14,7 +15,7 @@
     --placeholder-alpha: hsl(var(--mtz), 10%, 80%);
 
     /* Variáveis dinâmicas (javascript) */
-        --js-color-trigger: #00aaaa;
+        --js-color-trigger: #000;
     /**/
 }
 
@@ -41,6 +42,21 @@ body {
 }
 
 /* Formulário */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#people {
+    display: flex;
+    align-items: center;
+}
+
+#people ion-icon {
+    margin-right: 10px;
+    cursor: pointer;
+}
 
 #main-area {
    width: 100%;
@@ -61,6 +77,14 @@ body {
 
 input { 
     outline: none; 
+}
+
+input[disabled], .disabled{
+    filter: brightness(50%);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
 }
 
 .input {
@@ -86,7 +110,6 @@ input {
     background: var(--bg-medium);
     border: 1px solid var(--border-medium);
     border-radius: 5px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -94,8 +117,9 @@ input {
     position: relative;
 }
 
-.input #identifier-trigger:hover {
+.input #identifier-trigger:hover:not(.disabled) {
     transform: translateX(3px);
+    cursor: pointer;
 }
 
 .input #identifier-trigger::before {
@@ -110,7 +134,8 @@ input {
     background: var(--js-color-trigger);
 }
 
-.input input:not(#identifier) {
+.input input:not(#identifier),
+#people-input {
     padding: 12px 16px;
     border-radius: 5px;
     border: 1px solid var(--border-medium);
@@ -118,8 +143,9 @@ input {
     flex-grow: 1;
 }
 
-.input input:not(#identifier)::placeholder {
-    color: var(--placeholder-alpha)
+.input input:not(#identifier)::placeholder,
+#people-input::placeholder {
+    color: var(--placeholder-alpha);
 }
 
 #buttons {
@@ -139,6 +165,12 @@ button {
     transition: 0.5s;
 }
 
+button[disabled] {
+    background: var(--bg-button-disabled) !important;
+    cursor: initial;
+    color: #595959;
+}
+
 button:not(#clean){
     background: var(--bg-button);
 }
@@ -148,7 +180,7 @@ button:not(#clean){
     border: 1px solid var(--border-dark);
 }
 
-button:hover {
+button:hover:not(button[disabled]) {
     transform: translateY(-3px);
 }
 
@@ -210,7 +242,7 @@ canvas {
 }
 
 #slide-close {
-    margin: 15px 40px 0 0;
+    margin: 15px 10px 0 0;
     font-size: 30px;
     color: var(--border-medium);
     cursor: pointer;
@@ -271,6 +303,17 @@ canvas {
     }
 }
 
+@media (max-width: 460px){
+    header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    header #people {
+        margin-top: 24px;
+    }
+}
+
 @media (max-width: 370px){
     .input #input-area {
         flex-direction: column;
@@ -302,4 +345,11 @@ canvas {
 .statistics-topic {
     color: var(--placeholder-alpha);
     margin: 5px 0;
+}
+
+/* Swal pop-up */
+.swal-template-container {
+    background: var(--bg-dark);
+    color: #fff;
+    border: 1px solid var(--border-dark);
 }

@@ -46,7 +46,7 @@ function splitGraphAreas(){
             context.closePath();
 
             context.beginPath();
-                context.font = "bold 14px arial";
+                context.font = "bold 11px arial";
                 context.fillStyle = GRAPH_STRUCT_COLOR;
                 context.fillText(
                     graphAreas[ystepi][xstepi],

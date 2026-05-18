@@ -44,6 +44,33 @@ function graphIndex(avgAppearance, avgPersonality){
     return linearAreas[avgpIndex][avgaIndex];
 }
 
+function avgOfEvaluators(){
+    const evaluations = activeEvaluation.evaluations;
+    const avgs = {
+        pts: 0,
+        bd: 0,
+        rs: 0,
+        ps: 0
+    }
+
+    for(let i = 0; i < evaluations.length; i++){
+        avgs.pts += evaluations[i].pts;
+        avgs.bd += evaluations[i].bd;
+        avgs.rs += evaluations[i].rs;
+        avgs.ps += evaluations[i].ps;
+    }
+
+    const avgskeys = Object.keys(avgs);
+
+    for(let j = 0; j < avgskeys.length; j++){
+        avgs[avgskeys[j]] = avgs[avgskeys[j]] / activeEvaluation.evaluators;
+    }
+
+    console.log(avgs)
+
+    return avgs
+}
+
 function updateStatistics(){
     const zeroLimit = (x) => x < 0 ? 0 : x;
 
@@ -57,6 +84,15 @@ function updateStatistics(){
 
     const avgAppearance = sumMX / sessionIFPDocuments.length;
     const avgPersonality = sumMY / sessionIFPDocuments.length;
+
+    /*
+    console.log(
+        {
+            avgAppearance,
+            avgPersonality
+        }
+    );
+    */
     
     stats.innerHTML = `
         <div class="statistics-topic"> 

@@ -1,4 +1,20 @@
+function setup(){
+    const { on, recoveryEvaluations } = evaluationState();
+
+    if(on){
+        activeEvaluation = { ...recoveryEvaluations };
+        addDataFromPreviousEvaluation();
+        notifyInputFromEvaluating(on);
+
+        updateEvaluationRemaining()
+        return;
+    }
+
+    searchPreviousInitialization();
+}
+
 // Inicialização
+setup();
 rebuildGraph();
 
 document.addEventListener('DOMContentLoaded', () => {
